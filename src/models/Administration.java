@@ -5,8 +5,5 @@ import java.util.ArrayList;
 public class Administration {
 	
 	private ArrayList<Person> personList;
-	private ArrayList<Dwelling> dwellingList;
-	
-	
-
+	private ArrayList<Apartment> aparmentList;
 }

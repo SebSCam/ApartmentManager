@@ -1,15 +1,20 @@
 package controller;
 
 import models.Administration;
-import window.MyWindow;
+import window.MainWindow;
 
 public class Controller {
 	
-	private Administration myAdministration;
-	private MyWindow myWindow;
+	private Administration manager;
+	private MainWindow window;
 	
 	public Controller() {
-		myAdministration = new Administration();
-		myWindow = new MyWindow();
+		manager = new Administration();
+		window = new MainWindow();
+		init();
+	}
+
+	private void init() {
+		window.setVisible(true);
 	}
 }
