@@ -5,12 +5,14 @@ public class Person {
 	private String name;
 	private String lastName;
 	private IDType idType;
-	private int cellPhoneNumber;
+	private String idNumber;
+	private String cellPhoneNumber;
 
-	public Person(String name, String lastName, IDType idType, int cellPhoneNumber) {
+	public Person(String name, String lastName, IDType idType, String idNumber, String cellPhoneNumber) {
 		this.name = name;
 		this.lastName = lastName;
 		this.idType = idType;
+		this.idNumber = idNumber;
 		this.cellPhoneNumber = cellPhoneNumber;
 	}
 
@@ -26,7 +28,27 @@ public class Person {
 		return idType;
 	}
 
-	public int getCellPhoneNumber() {
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public String getCellPhoneNumber() {
 		return cellPhoneNumber;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setIdType(IDType idType) {
+		this.idType = idType;
+	}
+
+	public void setCellPhoneNumber(String cellPhoneNumber) {
+		this.cellPhoneNumber = cellPhoneNumber;
 	}
 }

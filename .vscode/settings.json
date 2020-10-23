@@ -1,0 +1,11 @@
+{
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.guestApprovalRequired": false,
+    "liveshare.diagnosticLogging": true,
+    "liveshare.diagnosticMode": true,
+    "liveshare.alwaysFollowHost": true,
+    "liveshare.allowGuestTaskControl": true,
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.publishWorkspaceInfo": true,
+    "liveshare.audio.startCallOnShare": true,
+}
