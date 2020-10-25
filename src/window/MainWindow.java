@@ -1,6 +1,5 @@
 package window;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 

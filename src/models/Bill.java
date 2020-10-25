@@ -1,36 +1,43 @@
 package models;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 public class Bill {
 
-    public static final double PRICE = 75000;
-    public static final double LATEPAYMENTAX = 5000;
     private LocalDate dateBill;
-    private LocalDate concept;
+    private Month concept;
     private String name;
     private String number;
+    private boolean isPayment;
     private double valueFinal;
 
-    public Bill(LocalDate dateBill, LocalDate concept, String name, String number, double valueFinal) {
+    public Bill(LocalDate dateBill, Month concept, String name, String number) {
         this.dateBill = dateBill;
         this.concept = concept;
         this.name = name;
         this.number = number;
-        this.valueFinal = valueFinal;
+    }
+   
+    public boolean getIsPayment(){
+        return isPayment;
     }
 
-    public double calculateValueBill(){
-        if (LocalDate.now().isBefore(LocalDate.parse("2020-10-"))) {
-            
-        }
+    public void payment() {
+        this.isPayment = true;
+    }
 
+    public double getValueFinal(){
         return valueFinal;
     }
 
-    @Override
+    public Month getConcept(){
+        return concept;
+    }
+
+     @Override
     public String toString() {
-        return "Bill [dateBill=" + dateBill + ", concept=" + concept + ", name=" + name + ", number=" + number
-                + ", valueFinal=" + valueFinal + "]";
+        return "Fecha: " + dateBill + "Concepto: " + concept + ", Propietario: " + name + "# Apartamento: " + number
+                + "Valor" + valueFinal;
     }
 }

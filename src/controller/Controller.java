@@ -17,4 +17,8 @@ public class Controller {
 	private void init() {
 		window.setVisible(true);
 	}
+
+	public void getPersonList(){
+		manager.getPersonList();
+	}
 }

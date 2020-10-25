@@ -51,4 +51,9 @@ public class Person {
 	public void setCellPhoneNumber(String cellPhoneNumber) {
 		this.cellPhoneNumber = cellPhoneNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + name + "Apellidos: " + lastName + "Tipo de Documento:  " + idType + "# identificacion: " + idNumber + "# Celular: " + cellPhoneNumber;
+	}
 }
