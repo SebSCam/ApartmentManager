@@ -6,7 +6,6 @@ import java.time.Month;
 import models.Administration;
 import models.Bill;
 import models.ExtraServices;
-import models.IDType;
 
 public class TestBill {
 
