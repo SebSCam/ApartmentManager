@@ -1,8 +1,6 @@
 package window;
 
 import javax.swing.JPanel;
-import javax.swing.UIManager;
-import java.awt.Color;
 import java.awt.BorderLayout;
 
 
