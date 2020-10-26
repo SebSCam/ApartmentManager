@@ -31,10 +31,5 @@ public class PanelPrincipal extends JPanel {
         this.add(menuBar, BorderLayout.WEST);
         this.add(content, BorderLayout.CENTER);
         this.add(footer, BorderLayout.SOUTH);
-        manageUI();
     }
-
-    private void manageUI() {
-		UIManager.put("Panel.background", new Color(41, 33, 33));
-	}
 }

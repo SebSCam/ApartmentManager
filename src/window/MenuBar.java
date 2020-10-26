@@ -1,7 +1,8 @@
 package window;
 
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -11,19 +12,21 @@ public class MenuBar extends JMenuBar {
      *
      */
     private static final long serialVersionUID = 1L;
-    private JMenuItem menuApartamentos;
-    private JMenuItem menuFinanzas;
-    private JMenuItem menuCartera;
-    private JMenuItem menuMora;
-    private JMenuItem menuAjustes;
+    private MenuItemModel menuApartamentos;
+    private MenuItemModel menuFinanzas;
+    private MenuItemModel menuCartera;
+    private MenuItemModel menuMora;
+    private MenuItemModel menuAjustes;
+    private JPanel panelAzul;
 
     public MenuBar(ActionListener l) {
-        this.setLayout(new GridLayout(0, 1));
-        menuApartamentos = new JMenuItem(ConstantsGUI.NAME_MENU_APARTAMENTOS);
-        menuFinanzas = new JMenuItem(ConstantsGUI.NAME_MENU_FINANZAS);
-        menuCartera = new JMenuItem(ConstantsGUI.NAME_MENU_CARTERA);
-        menuMora = new JMenuItem(ConstantsGUI.NAME_MENU_MORA);
-        menuAjustes = new JMenuItem(ConstantsGUI.NAME_MENU_AJUSTES);
+        this.setLayout(new GridLayout(6, 1));
+        menuApartamentos = new MenuItemModel(ConstantsGUI.NAME_MENU_APARTAMENTOS, ConstantsGUI.PATH_IMAGE_APARTAMENTOS);
+        menuFinanzas = new MenuItemModel(ConstantsGUI.NAME_MENU_FINANZAS, ConstantsGUI.PATH_IMAGE_FINANZAS);
+        menuCartera = new MenuItemModel(ConstantsGUI.NAME_MENU_CARTERA, ConstantsGUI.PATH_IMAGE_CARTERA);
+        menuMora = new MenuItemModel(ConstantsGUI.NAME_MENU_MORA, ConstantsGUI.PATH_IMAGE_MORA);
+        menuAjustes = new MenuItemModel(ConstantsGUI.NAME_MENU_AJUSTES, ConstantsGUI.PATH_IMAGE_AJUSTES);
+        panelAzul = new JPanel();
         initComponents(l);
     }
 
@@ -47,5 +50,8 @@ public class MenuBar extends JMenuBar {
         menuAjustes.addActionListener(l);
         menuAjustes.setActionCommand(Command.AJUSTES.name());
         this.add(menuAjustes);
+
+        panelAzul.setBackground(Color.decode(ConstantsGUI.COLOR_AZUL_PROFUNDO));
+        this.add(panelAzul);
     }
 }

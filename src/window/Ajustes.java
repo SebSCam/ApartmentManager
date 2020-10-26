@@ -14,6 +14,4 @@ public class Ajustes extends JPanel {
     public Ajustes() {
         setBackground(Color.YELLOW);
     }
-    
-    
 }
