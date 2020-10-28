@@ -1,7 +1,5 @@
 package window;
 
-import java.awt.event.MouseListener;
-
 import javax.swing.JTabbedPane;
 
 public class Propietarios extends JTabbedPane {
@@ -13,8 +11,8 @@ public class Propietarios extends JTabbedPane {
     private PanelPropietarios panelPropietarios;
     private PanelApartamentos panelApartamentos;
 
-    public Propietarios(MouseListener mouseListener) {
-        panelPropietarios= new PanelPropietarios(mouseListener);
+    public Propietarios() {
+        panelPropietarios= new PanelPropietarios();
         panelApartamentos = new PanelApartamentos();
         initComponents();
     }

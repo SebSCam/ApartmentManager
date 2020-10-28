@@ -7,7 +7,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.MouseListener;
 import java.awt.BorderLayout;
 import java.awt.Component;
 
@@ -21,14 +20,14 @@ public class TablePropietarios extends JPanel {
     private JTable table;
     private JScrollPane scroll;
 
-    public TablePropietarios(MouseListener mouseListener) {
+    public TablePropietarios() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.setBackground(Color.decode("#30373D"));
         this.setPreferredSize(new Dimension(700, 570));
-        initComponents(mouseListener);
+        initComponents();
     }
 
-    private void initComponents(MouseListener listener) {
+    private void initComponents() {
         dtmElements = new DefaultTableModel() {
             /**
              * 
@@ -56,9 +55,6 @@ public class TablePropietarios extends JPanel {
         scroll.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(scroll, BorderLayout.PAGE_END);
         this.setBorder(null);
-
-        table.addMouseListener(listener);
-
     }
 
     public int getSelectedRow() {

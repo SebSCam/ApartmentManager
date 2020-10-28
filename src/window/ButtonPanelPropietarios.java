@@ -28,6 +28,16 @@ public class ButtonPanelPropietarios extends JPanel {
         this.add(buttonAdd);
         this.add(buttonEdit);
         this.add(buttonDelete);
+        addComboBoxOptions();
+        tableSelector.setPreferredSize(buttonAdd.getPreferredSize());
         this.add(tableSelector);
+    }
+
+    private void addComboBoxOptions() {
+        int count = 0;
+        for (TableOptions option : TableOptions.values()) {
+			tableSelector.insertItemAt(option, count++);
+        }
+        tableSelector.setSelectedItem(TableOptions.PROPIETARIOS);
     }
 }

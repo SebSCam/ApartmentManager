@@ -2,7 +2,6 @@ package window;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.event.MouseListener;
 
 public class PanelPrincipal extends JPanel {
 
@@ -15,10 +14,10 @@ public class PanelPrincipal extends JPanel {
     private Content content;
     private Footer footer;
 
-    public PanelPrincipal(MouseListener mouseListener) {
+    public PanelPrincipal() {
         this.setLayout(new BorderLayout());
         header = new Header();
-        content = new Content(mouseListener);
+        content = new Content();
         menuBar = new MenuBar(content);
         footer = new Footer();        
         initComponents();

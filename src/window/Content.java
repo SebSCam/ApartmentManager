@@ -3,7 +3,6 @@ package window;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.awt.CardLayout;
 import java.awt.Color;
 
@@ -19,14 +18,14 @@ public class Content extends JPanel implements ActionListener {
     private Mora mora;
     private Ajustes ajustes;
 
-    public Content(MouseListener mouseListener) {
+    public Content() {
         this.setLayout(new CardLayout());
         this.setBackground(Color.WHITE);
-        initComponents(mouseListener);
+        initComponents();
     }
 
-    private void initComponents(MouseListener mouseListener) {
-        propietarios = new Propietarios(mouseListener);
+    private void initComponents() {
+        propietarios = new Propietarios();
         finanzas = new Finanzas();
         cartera = new Cartera();
         mora = new Mora();
