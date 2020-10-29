@@ -1,6 +1,9 @@
 package views;
 
 import javax.swing.JPanel;
+
+import controller.Controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.CardLayout;
@@ -18,14 +21,14 @@ public class Content extends JPanel implements ActionListener {
     private Mora mora;
     private Ajustes ajustes;
 
-    public Content() {
+    public Content(Controller controller) {
         this.setLayout(new CardLayout());
         this.setBackground(Color.WHITE);
-        initComponents();
+        initComponents(controller);
     }
 
-    private void initComponents() {
-        propietarios = new Propietarios();
+    private void initComponents(Controller controller) {
+        propietarios = new Propietarios(controller);
         finanzas = new Finanzas();
         cartera = new Cartera();
         mora = new Mora();

@@ -1,7 +1,10 @@
 package views;
 
+import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+
+import controller.Controller;
 
 public class PanelPropietarios extends JPanel {
 
@@ -12,14 +15,14 @@ public class PanelPropietarios extends JPanel {
     private ButtonPanelPropietarios buttonPanelPropietarios;
     private TableModel table;
 
-    public PanelPropietarios() {
+    public PanelPropietarios(Controller l) {
         this.setName(ConstantsGUI.NAME_MENU_APARTAMENTOS);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        initComponents();
+        initComponents(l);
     }
 
-    private void initComponents() {
-        buttonPanelPropietarios = new ButtonPanelPropietarios();
+    private <ActionListener> void initComponents(Controller l) {
+        buttonPanelPropietarios = new ButtonPanelPropietarios(l);
         table = new TableModel();
 
         this.add(buttonPanelPropietarios);

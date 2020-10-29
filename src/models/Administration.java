@@ -31,7 +31,7 @@ public class Administration {
 	private void initProperties() {
 		properties = new Properties();
 		try {
-			properties.load(new FileReader("src/sources/config.properties"));
+			properties.load(new FileReader("src/resources/config.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

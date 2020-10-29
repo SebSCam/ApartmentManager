@@ -1,6 +1,10 @@
 package views;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JTabbedPane;
+
+import controller.Controller;
 
 public class Propietarios extends JTabbedPane {
 
@@ -11,8 +15,8 @@ public class Propietarios extends JTabbedPane {
     private PanelPropietarios panelPropietarios;
     private PanelApartamentos panelApartamentos;
 
-    public Propietarios() {
-        panelPropietarios= new PanelPropietarios();
+    public Propietarios(Controller l) {
+        panelPropietarios= new PanelPropietarios(l);
         panelApartamentos = new PanelApartamentos();
         initComponents();
     }

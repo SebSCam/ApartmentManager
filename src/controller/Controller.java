@@ -1,10 +1,14 @@
 package controller;
 
 import models.Administration;
+import views.Command;
 import views.MainWindow;
 import views.PersonDialog;
 
-public class Controller {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Controller implements ActionListener {
 
 	private Administration manager;
 	private MainWindow window;
@@ -12,8 +16,8 @@ public class Controller {
 
 	public Controller() {
 		manager = new Administration();
-		window = new MainWindow();
-		personDialog = new PersonDialog();
+		window = new MainWindow(this);
+		personDialog = new PersonDialog(manager.getPersonList());
 		init();
 	}
 
@@ -21,11 +25,29 @@ public class Controller {
 		window.setVisible(true);
 	}
 
-	private void addData() {
-
-	}
-
 	public void getPersonList() {
 		manager.getPersonList();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch (Command.valueOf(e.getActionCommand())) {
+			case ADD_APARTMENT:
+				manager.addApartment(personDialog.getPerson(), personDialog.getNumber());
+				break;
+			case ADD_PERSON:
+				personDialog.setVisible(true);
+				break;
+			case EDIT_APARTMENT:
+				break;
+			case EDIT_PERSON:
+				break;
+			case REMOVE_APARTMENT:
+				break;
+			case REMOVE_PERSON:
+				break;
+			default:
+				break;
+		}
 	}
 }

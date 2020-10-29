@@ -9,7 +9,7 @@ public class PanelApartamentos extends JPanel {
      *
      */
     private static final long serialVersionUID = 1L;
-    private ButtonPanelPropietarios panelPropietarios;
+    private ButtonPanelApartamentos panelPropietarios;
     private PanelButtonApartamentos panelApartamentos;
 
     public PanelApartamentos() {
@@ -19,7 +19,7 @@ public class PanelApartamentos extends JPanel {
     }
 
     private void initComponents() {
-        panelPropietarios = new ButtonPanelPropietarios();
+        panelPropietarios = new ButtonPanelApartamentos();
         panelApartamentos = new PanelButtonApartamentos();
 
         this.add(panelPropietarios);

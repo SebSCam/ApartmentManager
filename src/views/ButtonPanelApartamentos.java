@@ -1,12 +1,10 @@
 package views;
 
 import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-public class ButtonPanelPropietarios extends JPanel {
+public class ButtonPanelApartamentos extends JPanel {
 
     /**
      *
@@ -17,18 +15,16 @@ public class ButtonPanelPropietarios extends JPanel {
     private ButtonModel buttonDelete;
     private JComboBox<TableOptions> tableSelector;
 
-    public ButtonPanelPropietarios(ActionListener l) {
+    public ButtonPanelApartamentos() {
         this.setLayout(new FlowLayout());
-        buttonAdd = new ButtonModel(ConstantsGUI.NAME_BUTTON_AGREGAR, ConstantsGUI.PATH_IMAGE_ADD);
+        buttonAdd = new ButtonModel(ConstantsGUI.NAME_BUTTON_AGREGAR, ConstantsGUI.PATH_IMAGE_ADD_APARTAMENTO);
         buttonEdit = new ButtonModel(ConstantsGUI.NAME_BUTTON_EDIT, ConstantsGUI.PATH_IMAGE_EDIT);
         buttonDelete = new ButtonModel(ConstantsGUI.NAME_BUTTON_DELETE, ConstantsGUI.PATH_IMAGE_DELETE);
         tableSelector = new JComboBox<TableOptions>();
-        initComponents(l);
-	}
+        initComponents();
+    }
 
-	private void initComponents(ActionListener l) {
-        buttonAdd.setActionCommand(Command.ADD_PERSON.name());
-        buttonAdd.addActionListener(l);
+    private void initComponents() {
         this.add(buttonAdd);
         this.add(buttonEdit);
         this.add(buttonDelete);
@@ -40,7 +36,7 @@ public class ButtonPanelPropietarios extends JPanel {
     private void addComboBoxOptions() {
         int count = 0;
         for (TableOptions option : TableOptions.values()) {
-			tableSelector.insertItemAt(option, count++);
+            tableSelector.insertItemAt(option, count++);
         }
         tableSelector.setSelectedItem(TableOptions.PROPIETARIOS);
     }

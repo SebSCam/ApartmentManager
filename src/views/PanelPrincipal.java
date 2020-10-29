@@ -1,6 +1,9 @@
 package views;
 
 import javax.swing.JPanel;
+
+import controller.Controller;
+
 import java.awt.BorderLayout;
 
 public class PanelPrincipal extends JPanel {
@@ -14,10 +17,10 @@ public class PanelPrincipal extends JPanel {
     private Content content;
     private Footer footer;
 
-    public PanelPrincipal() {
+    public PanelPrincipal(Controller controller) {
         this.setLayout(new BorderLayout());
         header = new Header();
-        content = new Content();
+        content = new Content(controller);
         menuBar = new MenuBar(content);
         footer = new Footer();        
         initComponents();

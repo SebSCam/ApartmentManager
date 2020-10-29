@@ -20,4 +20,8 @@ public class Header extends JPanel{
         description.setForeground(Color.WHITE);
         this.add(description);
     }
+
+	public void setText(String string) {
+        description.setText(string);
+	}
 }

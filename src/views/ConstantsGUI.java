@@ -1,5 +1,7 @@
 package views;
 
+import javax.swing.Icon;
+
 public class ConstantsGUI {
 
 	public static final String NAME_PANEL_PROPIETARIOS = "Propietarios";
@@ -28,7 +30,7 @@ public class ConstantsGUI {
 	public static final String PATH_IMAGE_EDIT = "/images/edit.png";
 	public static final String PATH_IMAGE_DELETE = "/images/delete.png";
 
-	public static final String DESCRIPTION_FOOTER = "JeiSeb Soft. 2020";
+	public static final String DESCRIPTION_FOOTER = "No me miren";
 	public static final String DESCRIPTION_HEADER = "ADMINISTRADOR";
 
 	public static final String COLOR_AZUL_PROFUNDO = "#000B61";
@@ -43,4 +45,12 @@ public class ConstantsGUI {
 	public static final String NAME_BUTTON_REGISTRAR = "REGISTRAR";
 	public static final String PATH_IMAGE_REGISTRAR = "/images/registrar.png";
 	public static final String LABEL_TITLE_MORA = "PAGOS EN MORA";
+	public static final String PATH_IMAGE_ADD_APARTAMENTO = "/images/addApartment.png";
+	public static final String DIALOG_TITLE = "Propietario";
+	public static final String BORDER_NAME_NAME = "Nombre";
+	public static final String BORDER_NAME_LASTNAME = "Apellido";
+	public static final String BORDER_NAME_ID = "Numero ID";
+	public static final String BORDER_NAME_NUMBER = "Numero Telefono";
+	public static final String BORDER_NAME_TYPE = "Tipo ID";
+	public static final String NAME_BUTTON_CANCELAR = "CANCELAR";
 }
