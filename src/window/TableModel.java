@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.Component;
 
-public class TablePropietarios extends JPanel {
+public class TableModel extends JPanel {
 
     /**
      * 
@@ -20,10 +20,10 @@ public class TablePropietarios extends JPanel {
     private JTable table;
     private JScrollPane scroll;
 
-    public TablePropietarios() {
+    public TableModel() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.setBackground(Color.decode("#30373D"));
-        this.setPreferredSize(new Dimension(700, 570));
+        this.setPreferredSize(new Dimension(900, 570));
         initComponents();
     }
 

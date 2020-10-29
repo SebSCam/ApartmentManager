@@ -2,23 +2,22 @@ package window;
 
 public class ConstantsGUI {
 
-    public static final String NAME_PANEL_PROPIETARIOS = "Propietarios";
-    public static final String NAME_PANEL_FINANZAS = "Finanzas";
-    public static final String NAME_PANEL_CARTERA = "Cartera";
-    public static final String NAME_PANEL_MORA = "Mora";
-    public static final String NAME_PANEL_AJUSTES = "Ajustes";
+	public static final String NAME_PANEL_PROPIETARIOS = "Propietarios";
+	public static final String NAME_PANEL_FINANZAS = "Finanzas";
+	public static final String NAME_PANEL_CARTERA = "Cartera";
+	public static final String NAME_PANEL_MORA = "Mora";
+	public static final String NAME_PANEL_AJUSTES = "Ajustes";
 
 	public static final String NAME_MENU_APARTAMENTOS = "  PROPIETARIOS";
 	public static final String NAME_MENU_FINANZAS = "  MIS FINANZAS";
 	public static final String NAME_MENU_MORA = "PAGOS EN MORA";
 	public static final String NAME_MENU_CARTERA = "   VER CARTERA";
-    public static final String NAME_MENU_AJUSTES = "CONFIGURACION";
+	public static final String NAME_MENU_AJUSTES = "CONFIGURACION";
 	public static final String NAME_PANEL_APARTAMENTOS = "APARTAMENTOS";
 
 	public static final String NAME_BUTTON_AGREGAR = "AGREGAR";
 	public static final String NAME_BUTTON_EDIT = "MODIFICAR";
 	public static final String NAME_BUTTON_DELETE = "ELIMINAR";
-    
 
 	public static final String PATH_IMAGE_APARTAMENTOS = "/images/apartamentos.png";
 	public static final String PATH_IMAGE_FINANZAS = "/images/finanzas.png";
@@ -36,5 +35,12 @@ public class ConstantsGUI {
 	public static final String COLOR_GRIS_OSCURO = "#363B36";
 	public static final String COLOR_AZUL_CLARO = "#D8EBF9";
 
-	public static final String[] HEADERS_PROPIETARIOS = {"Nombre","Apellido", "Tipo Doc", "Numero ID", "Numero de Telefono"};
+	public static final String[] HEADERS_PROPIETARIOS = { "Nombre", "Apellido", "Tipo Doc", "Numero ID",
+			"Numero de Telefono" };
+	public static final String LABEL_TITLE = "REGISTROS EN CAJA";
+	public static final String LABEL_TITLE_NUMBER = "NUMERO";
+	public static final String BORDER_NAME = "RECIBI DE";
+	public static final String NAME_BUTTON_REGISTRAR = "REGISTRAR";
+	public static final String PATH_IMAGE_REGISTRAR = "/images/registrar.png";
+	public static final String LABEL_TITLE_MORA = "PAGOS EN MORA";
 }

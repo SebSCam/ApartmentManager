@@ -10,7 +10,7 @@ public class PanelPropietarios extends JPanel {
      */
     private static final long serialVersionUID = 1L;
     private ButtonPanelPropietarios buttonPanelPropietarios;
-    private TablePropietarios table;
+    private TableModel table;
 
     public PanelPropietarios() {
         this.setName(ConstantsGUI.NAME_MENU_APARTAMENTOS);
@@ -20,7 +20,7 @@ public class PanelPropietarios extends JPanel {
 
     private void initComponents() {
         buttonPanelPropietarios = new ButtonPanelPropietarios();
-        table = new TablePropietarios();
+        table = new TableModel();
 
         this.add(buttonPanelPropietarios);
         this.add(table);
