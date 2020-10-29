@@ -18,6 +18,12 @@ public class Controller{
 		window.setVisible(true);
 	}
 
+	private void addData(){
+
+		
+
+	}
+
 	public void getPersonList() {
 		manager.getPersonList();
 	}
