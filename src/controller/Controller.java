@@ -1,7 +1,7 @@
 package controller;
 
 import models.Administration;
-import window.MainWindow;
+import views.MainWindow;
 
 public class Controller{
 
