@@ -17,9 +17,11 @@ public class Administration {
 	private ArrayList<Apartment> aparmentList;
 	private double totalMoney;
 	private Properties properties;
+	private IOBinary ioBinary;
 
 	public Administration() {
 		initProperties();
+		ioBinary = new IOBinary();
 		personList = new ArrayList<>();
 		aparmentList = new ArrayList<>();
 		this.actualMonth = LocalDate.now().getMonth();
@@ -33,15 +35,19 @@ public class Administration {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	public void addPerson(String name, String lastName, IDType idType, String idNumber, String cellPhoneNumber) {
-		personList.add(new Person(name, lastName, idType, idNumber, cellPhoneNumber));
+		Person person = new Person(name, lastName, idType, idNumber, cellPhoneNumber); 
+		personList.add(person);
+		ioBinary.writePerson(person);
+		
 	}
 
 	public void addApartment(Person owner, String number) {
-		aparmentList.add(new Apartment(owner, number));
+		Apartment apartment = new Apartment(owner, number);
+		aparmentList.add(apartment);
+		ioBinary.writeApartment(apartment);
 	}
 
 	public void editPerson(Person owner, String name, String lastName, IDType idType, String phoneNumber) {
@@ -120,8 +126,16 @@ public class Administration {
 		return personList;
 	}
 
+	public void readPersonList() {
+		ioBinary.readPerson();
+	}
+
 	public ArrayList<Apartment> getApartmentList(){
 		return aparmentList;
+	}
+
+	public void readApartmentList() {
+		ioBinary.readApartment();;
 	}
 
 	public double getTotalMoney(){

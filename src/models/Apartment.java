@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Apartment {
+public class Apartment implements Serializable{
 	
+	private static final long serialVersionUID = -5039101338305804761L;
 	private Person owner;
 	private String idNumber;	
 	private ArrayList<Bill> billList;
