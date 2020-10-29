@@ -1,9 +1,6 @@
 package views;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.JTabbedPane;
-
 import controller.Controller;
 
 public class Propietarios extends JTabbedPane {

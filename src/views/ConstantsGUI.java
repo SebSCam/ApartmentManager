@@ -1,7 +1,5 @@
 package views;
 
-import javax.swing.Icon;
-
 public class ConstantsGUI {
 
 	public static final String NAME_PANEL_PROPIETARIOS = "Propietarios";

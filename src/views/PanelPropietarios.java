@@ -1,9 +1,7 @@
 package views;
 
-import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-
 import controller.Controller;
 
 public class PanelPropietarios extends JPanel {
@@ -21,7 +19,7 @@ public class PanelPropietarios extends JPanel {
         initComponents(l);
     }
 
-    private <ActionListener> void initComponents(Controller l) {
+    private void initComponents(Controller l) {
         buttonPanelPropietarios = new ButtonPanelPropietarios(l);
         table = new TableModel();
 
