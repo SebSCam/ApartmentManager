@@ -9,9 +9,6 @@ import java.awt.BorderLayout;
 
 public class PersonDialog extends JDialog {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 	private Header header;
 	private JPanelPerson content;
@@ -48,5 +45,4 @@ public class PersonDialog extends JDialog {
 	public String getNumber() {
 		return null;
 	}
-
 }
