@@ -45,11 +45,8 @@ public class PersonDialog extends JDialog {
 	public String getNumber() {
 		return null;
 	}
-<<<<<<< HEAD
 
 	public void setPerson(Person person) {
 		content.setPerson(person);
 	}
-=======
->>>>>>> 7a1a994db408e27914b42200660484650a18c8f8
 }
