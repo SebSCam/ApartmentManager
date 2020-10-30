@@ -42,24 +42,23 @@ public class Controller implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (Command.valueOf(e.getActionCommand())) {
 			case ADD_APARTMENT:
-				manager.addApartment(personDialog.getPerson(), personDialog.getNumber());
+				// manager.addApartment(personDialog.getPerson(), personDialog.getNumber());
+				window.createApartments(manager.getApartmentList());
 				break;
 			case ADD_PERSON:
 				personDialog.setVisible(true);
 				break;
 			case EDIT_APARTMENT:
+				// manager.addApartment(owner, number);
 				break;
 			case EDIT_PERSON:
 				try {
 					personDialog.setPerson(manager.getPersonList().get(window.getSelectedRow()));
 					personDialog.setVisible(true);
 				} catch (IndexOutOfBoundsException exception) {
-					JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la lista", "Error",
+					JOptionPane.showMessageDialog(null, "Por favor seleccione un Propietario", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
-				break;
-			case REMOVE_APARTMENT:
-
 				break;
 			case REMOVE_PERSON:
 				try {
@@ -67,7 +66,7 @@ public class Controller implements ActionListener {
 					window.deletePersonTable();
 					managePersonTable();
 				} catch (IndexOutOfBoundsException e2) {
-					JOptionPane.showMessageDialog(null, "Por favor seleccione un elemento de la lista", "Error",
+					JOptionPane.showMessageDialog(null, "Por favor seleccione un Propietario", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 				break;

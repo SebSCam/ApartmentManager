@@ -24,6 +24,7 @@ public class PanelButtonApartamentos extends JPanel {
     }
 
     public void createApartments(ArrayList<Apartment> apartments) {
+        this.removeAll();
         for (Apartment apartment : apartments) {
             this.add(new JButton(apartment.getIdNumber()));
         }

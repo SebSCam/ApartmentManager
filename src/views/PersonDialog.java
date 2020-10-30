@@ -42,10 +42,6 @@ public class PersonDialog extends JDialog {
 		return content.getPerson();
 	}
 
-	public String getNumber() {
-		return null;
-	}
-
 	public void setPerson(Person person) {
 		content.setPerson(person);
 	}

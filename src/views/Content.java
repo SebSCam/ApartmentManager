@@ -3,9 +3,11 @@ package views;
 import javax.swing.JPanel;
 
 import controller.Controller;
+import models.Apartment;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.CardLayout;
 import java.awt.Color;
 
@@ -74,5 +76,9 @@ public class Content extends JPanel implements ActionListener {
 
 	public void deletePersonTable() {
         propietarios.deletePersonTable();
+	}
+
+	public void createApartments(ArrayList<Apartment> apartmentList) {
+        propietarios.createApartments(apartmentList);
 	}
 }

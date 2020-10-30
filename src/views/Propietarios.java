@@ -1,7 +1,10 @@
 package views;
 
+import java.util.ArrayList;
+
 import javax.swing.JTabbedPane;
 import controller.Controller;
+import models.Apartment;
 
 public class Propietarios extends JTabbedPane {
 
@@ -14,7 +17,7 @@ public class Propietarios extends JTabbedPane {
 
     public Propietarios(Controller l) {
         panelPropietarios= new PanelPropietarios(l);
-        panelApartamentos = new PanelApartamentos();
+        panelApartamentos = new PanelApartamentos(l);
         initComponents();
     }
 
@@ -33,5 +36,9 @@ public class Propietarios extends JTabbedPane {
 
 	public void deletePersonTable() {
         panelPropietarios.deleteTable();
+	}
+
+	public void createApartments(ArrayList<Apartment> apartmentList) {
+        panelApartamentos.createApartments(apartmentList);
 	}
 }

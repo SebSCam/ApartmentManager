@@ -3,8 +3,10 @@ package views;
 import javax.swing.JFrame;
 
 import controller.Controller;
+import models.Apartment;
 
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 public class MainWindow extends JFrame {
 
@@ -37,5 +39,9 @@ public class MainWindow extends JFrame {
 
 	public void deletePersonTable() {
         panelPrincipal.deletePersonTable();
+	}
+
+	public void createApartments(ArrayList<Apartment> apartmentList) {
+        panelPrincipal.createApartments(apartmentList);
 	}
 }

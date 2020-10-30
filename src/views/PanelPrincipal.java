@@ -3,8 +3,10 @@ package views;
 import javax.swing.JPanel;
 
 import controller.Controller;
+import models.Apartment;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 public class PanelPrincipal extends JPanel {
 
@@ -43,5 +45,9 @@ public class PanelPrincipal extends JPanel {
 
 	public void deletePersonTable() {
         content.deletePersonTable();
+	}
+
+	public void createApartments(ArrayList<Apartment> apartmentList) {
+        content.createApartments(apartmentList);
 	}
 }
