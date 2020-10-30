@@ -55,8 +55,7 @@ public class Person implements Serializable {
 		this.cellPhoneNumber = cellPhoneNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "Nombre: " + name + "Apellidos: " + lastName + "Tipo de Documento:  " + idType + "# identificacion: " + idNumber + "# Celular: " + cellPhoneNumber;
+	public Object[] toObjectVector() {
+		return new Object[] { name, lastName, idType, idNumber, cellPhoneNumber };
 	}
 }

@@ -22,4 +22,16 @@ public class Propietarios extends JTabbedPane {
         this.add(panelPropietarios);
         this.add(panelApartamentos);
     }
+
+	public int getSelectedRow() {
+		return panelPropietarios.getSelectedRow();
+	}
+
+	public void addLineToTable(Object[] objects) {
+        panelPropietarios.addLineToTable(objects);
+	}
+
+	public void deletePersonTable() {
+        panelPropietarios.deleteTable();
+	}
 }

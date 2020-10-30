@@ -63,4 +63,16 @@ public class Content extends JPanel implements ActionListener {
                 break;
         }
     }
+
+	public int getSelectedRow() {
+		return propietarios.getSelectedRow();
+	}
+
+	public void addLineToTable(Object[] objects) {
+        propietarios.addLineToTable(objects);
+	}
+
+	public void deletePersonTable() {
+        propietarios.deletePersonTable();
+	}
 }

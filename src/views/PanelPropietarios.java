@@ -26,4 +26,16 @@ public class PanelPropietarios extends JPanel {
         this.add(buttonPanelPropietarios);
         this.add(table);
     }
+
+    public int getSelectedRow() {
+        return table.getSelectedRow();
+    }
+
+    public void addLineToTable(Object[] objects) {
+        table.addRow(objects);
+    }
+
+    public void deleteTable() {
+        table.deleteTable();
+    }
 }

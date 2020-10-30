@@ -72,5 +72,4 @@ public class TableModel extends JPanel {
     public void deleteTable() {
         dtmElements.setRowCount(0);
     }
-
 }

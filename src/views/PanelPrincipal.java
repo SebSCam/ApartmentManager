@@ -32,4 +32,16 @@ public class PanelPrincipal extends JPanel {
         this.add(content, BorderLayout.CENTER);
         this.add(footer, BorderLayout.SOUTH);
     }
+
+	public int getSelectedRow() {
+        return content.getSelectedRow();
+	}
+
+	public void addLineToTable(Object[] objects) {
+        content.addLineToTable(objects);
+	}
+
+	public void deletePersonTable() {
+        content.deletePersonTable();
+	}
 }

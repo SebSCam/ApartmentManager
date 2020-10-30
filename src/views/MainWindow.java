@@ -26,4 +26,16 @@ public class MainWindow extends JFrame {
     private void initComponents() {
         this.add(panelPrincipal);
     }
+
+	public int getSelectedRow() {
+	    return panelPrincipal.getSelectedRow();
+	}
+
+	public void addLineToTable(Object[] objects) {
+        panelPrincipal.addLineToTable(objects);
+	}
+
+	public void deletePersonTable() {
+        panelPrincipal.deletePersonTable();
+	}
 }

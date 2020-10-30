@@ -24,14 +24,21 @@ public class ButtonPanelPropietarios extends JPanel {
         buttonDelete = new ButtonModel(ConstantsGUI.NAME_BUTTON_DELETE, ConstantsGUI.PATH_IMAGE_DELETE);
         tableSelector = new JComboBox<TableOptions>();
         initComponents(l);
-	}
+    }
 
-	private void initComponents(ActionListener l) {
+    private void initComponents(ActionListener l) {
         buttonAdd.setActionCommand(Command.ADD_PERSON.name());
         buttonAdd.addActionListener(l);
         this.add(buttonAdd);
+
+        buttonEdit.setActionCommand(Command.EDIT_PERSON.name());
+        buttonEdit.addActionListener(l);
         this.add(buttonEdit);
+
+        buttonDelete.setActionCommand(Command.REMOVE_PERSON.name());
+        buttonDelete.addActionListener(l);
         this.add(buttonDelete);
+
         addComboBoxOptions();
         tableSelector.setPreferredSize(buttonAdd.getPreferredSize());
         this.add(tableSelector);
@@ -40,7 +47,7 @@ public class ButtonPanelPropietarios extends JPanel {
     private void addComboBoxOptions() {
         int count = 0;
         for (TableOptions option : TableOptions.values()) {
-			tableSelector.insertItemAt(option, count++);
+            tableSelector.insertItemAt(option, count++);
         }
         tableSelector.setSelectedItem(TableOptions.PROPIETARIOS);
     }
