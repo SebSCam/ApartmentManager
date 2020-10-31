@@ -58,4 +58,9 @@ public class Person implements Serializable {
 	public Object[] toObjectVector() {
 		return new Object[] { name, lastName, idType, idNumber, cellPhoneNumber };
 	}
+
+	@Override
+	public String toString() {
+		return name + " " + lastName;
+	}
 }

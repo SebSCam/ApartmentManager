@@ -39,23 +39,7 @@ public class Administration {
 
 	public void addPerson(String name, String lastName, IDType idType, String idNumber, String cellPhoneNumber) {
 		Person person = new Person(name, lastName, idType, idNumber, cellPhoneNumber);
-		// for (int i = 0; i < personList.size(); i++) {
-		// if (personList.get(i).getIdNumber() == person.getIdNumber()) {
-		// personList.remove(i);
-		// personList.add(person);
-		// }else{
-		if (personList.size() == 0) {
-			personList.add(person);
-		} else {
-			for (Person persona : personList) {
-				if (persona.getIdNumber() == person.getIdNumber()) {
-					personList.remove(persona);
-					personList.add(person);
-				} else {
-					personList.add(person);
-				}
-			}
-		}
+		personList.add(person);
 	}
 
 	// }
@@ -67,15 +51,9 @@ public class Administration {
 		ioBinary.writeApartment(apartment);
 	}
 
-	public void editPerson(Person owner, String name, String lastName, IDType idType, String phoneNumber) {
-		for (Apartment apartment : aparmentList) {
-			if (apartment.getOwner().equals(owner)) {
-				apartment.getOwner().setName(name);
-				apartment.getOwner().setLastName(lastName);
-				apartment.getOwner().setIdType(idType);
-				apartment.getOwner().setCellPhoneNumber(phoneNumber);
-			}
-		}
+	public void editPerson(int index, Person person) {
+		personList.remove(index);
+		personList.add(person);
 	}
 
 	public void deletePerson(Person owner) {
@@ -166,14 +144,7 @@ public class Administration {
 	}
 
 	public void addPerson(Person person) {
-		// for (int i = 0; i < personList.size(); i++) {
-		// if (personList.get(i).getIdNumber() == person.getIdNumber()) {
-		// personList.remove(i);
-		// personList.add(person);
-		// }else{
 		personList.add(person);
-		// }
-		// }
 	}
 
 	public ArrayList<Object[]> getPersonListVector() {

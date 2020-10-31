@@ -23,7 +23,7 @@ public class PanelApartamentos extends JPanel {
 
     private void initComponents(Controller listener) {
         panelPropietarios = new ButtonPanelApartamentos(listener);
-        panelApartamentos = new PanelButtonApartamentos();
+        panelApartamentos = new PanelButtonApartamentos(listener);
 
         this.add(panelPropietarios);
         this.add(panelApartamentos);
