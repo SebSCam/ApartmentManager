@@ -1,6 +1,5 @@
 package views;
 
-
 public class ConstantsGUI {
 
 	public static final String NAME_PANEL_PROPIETARIOS = "Propietarios";
@@ -56,4 +55,9 @@ public class ConstantsGUI {
 	public static final String DIALOG_TITLE_APARTMENT = "APARTAMENTO";
 	public static final String BORDER_NAME_PERSON = "Seleccionar Propietario";
 	public static final String NAME_BUTTON_CREATE = "CREAR NUEVO PROPIETARIO";
+	public static final String BORDER_NAME_PROPIETARIO = "Propietario";
+	public static final String BORDER_NAME_DEUDA = "Deuda Total";
+	public static final String NAME_BUTTON_PAY = "COBRAR";
+	public static final String PATH_IMAGE_PAY = "/images/pay.png";
+	public static final String NAME_BUTTON_SHOW_BILL = "VER FACTURAS";
 }

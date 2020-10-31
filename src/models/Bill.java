@@ -7,6 +7,7 @@ import java.time.Month;
 public class Bill implements Serializable{
 
     private static final long serialVersionUID = 7566437190185049076L;
+    
     private LocalDate dateBill;
     private Month concept;
     private String name;

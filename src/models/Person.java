@@ -63,4 +63,8 @@ public class Person implements Serializable {
 	public String toString() {
 		return name + " " + lastName;
 	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 }

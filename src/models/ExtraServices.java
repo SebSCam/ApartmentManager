@@ -2,7 +2,7 @@ package models;
 
 public enum ExtraServices {
 
-    POOL_SERVICE("SERVICIO DE PISCINA"),SCYTHE_SERVICE("SERVICIO DE GUADAÑA");
+    POOL_SERVICE("SERVICIO DE PISCINA"), SCYTHE_SERVICE("SERVICIO DE GUADAÑA");
 
     private String nameService;
 

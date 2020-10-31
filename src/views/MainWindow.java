@@ -1,5 +1,6 @@
 package views;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controller.Controller;
@@ -43,5 +44,9 @@ public class MainWindow extends JFrame {
 
 	public void createApartments(ArrayList<Apartment> apartmentList) {
         panelPrincipal.createApartments(apartmentList);
+	}
+
+	public JButton getSelectedButton() {
+		return panelPrincipal.getSelectedButton();
 	}
 }

@@ -2,6 +2,7 @@ package views;
 
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import controller.Controller;
 import models.Apartment;
@@ -32,4 +33,8 @@ public class PanelApartamentos extends JPanel {
     public void createApartments(ArrayList<Apartment> apartmentList) {
         panelApartamentos.createApartments(apartmentList);
     }
+
+	public JButton getSelectedButton() {
+		return panelApartamentos.getSelectedButton();
+	}
 }

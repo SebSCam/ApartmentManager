@@ -6,7 +6,6 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import controller.Controller;
 import models.Person;
 import java.awt.Color;
@@ -20,18 +19,16 @@ public class JPanelApartment extends JPanel {
      *
      */
     private static final long serialVersionUID = 1L;
-    private JSpinner apartmentNumber;
+    private TextFieldModel apartmentNumber;
     private JComboBox<Person> personList;
     private JButton newPerson;
     private ButtonModel add;
     private ButtonModel cancel;
 
-    public JPanelApartment(Controller controller, ArrayList<Person> arrayList, ActionListener listener) {
+    public JPanelApartment(Controller listener, ArrayList<Person> arrayList) {
         this.setLayout(new GridLayout(7, 1, 0, 5));
         this.setBackground(Color.WHITE);
-        apartmentNumber = new JSpinner();
-        apartmentNumber.setBackground(Color.WHITE);
-        apartmentNumber.setBorder(BorderFactory.createTitledBorder(ConstantsGUI.BORDER_NAME_NUMERO_APARTAMENTO));
+        apartmentNumber = new TextFieldModel(ConstantsGUI.BORDER_NAME_NUMERO_APARTAMENTO);
         personList = new JComboBox<>();
         setPersonList(arrayList);
         personList.setBorder(BorderFactory.createTitledBorder(ConstantsGUI.BORDER_NAME_PERSON));
@@ -78,6 +75,6 @@ public class JPanelApartment extends JPanel {
     }
 
     public String getNumber() {
-        return String.valueOf(apartmentNumber.getValue());
+        return apartmentNumber.getText();
     }
 }

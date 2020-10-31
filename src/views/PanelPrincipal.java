@@ -1,5 +1,6 @@
 package views;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.Controller;
@@ -49,5 +50,9 @@ public class PanelPrincipal extends JPanel {
 
         public void createApartments(ArrayList<Apartment> apartmentList) {
                 content.createApartments(apartmentList);
+        }
+
+        public JButton getSelectedButton() {
+                return content.getSelectedButton();
         }
 }

@@ -10,13 +10,13 @@ public class InformationDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private Header header;
-	private JPanelPerson content;
+	private InfoApartment content;
 	private Footer footer;
 
 	public InformationDialog(Controller controller) {
 		header = new Header();
 		header.setText("APARTAMENTO");
-		content = new JPanelPerson(controller);
+		content = new InfoApartment(controller);
 		footer = new Footer();
 		this.setSize(600, 400);
 		this.setTitle(ConstantsGUI.DIALOG_TITLE_APARTMENT);
@@ -33,5 +33,9 @@ public class InformationDialog extends JDialog {
 
 		footer.setBackground(Color.decode(ConstantsGUI.COLOR_GRIS_OSCURO));
 		this.add(footer, BorderLayout.SOUTH);
+	}
+
+	public void setInformation(String number, String propietario, String deuda) {
+		content.setInformation(number, propietario, deuda);
 	}
 }

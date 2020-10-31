@@ -1,6 +1,8 @@
 package controller;
 
 import models.Administration;
+import models.IDType;
+import models.Person;
 import views.Command;
 import views.InformationDialog;
 import views.MainWindow;
@@ -8,11 +10,14 @@ import views.PersonDialog;
 import views.ApartmentDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.chrono.ThaiBuddhistDate;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
-public class Controller implements ActionListener {
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.event.MouseInputListener;
+
+public class Controller implements ActionListener, MouseInputListener {
 
 	private Administration manager;
 	private MainWindow window;
@@ -22,9 +27,27 @@ public class Controller implements ActionListener {
 
 	public Controller() {
 		manager = new Administration();
+		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
+		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
+		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
+
+		manager.generatePersonList();
+
 		window = new MainWindow(this);
 		personDialog = new PersonDialog(this);
-		apartmentDialog = new ApartmentDialog(this, manager.getPersonList(), this);
+		apartmentDialog = new ApartmentDialog(this, manager.getPersonList());
 		informationDialog = new InformationDialog(this);
 		managePersonTable();
 		window.createApartments(manager.getApartmentList());
@@ -53,6 +76,8 @@ public class Controller implements ActionListener {
 				apartmentDialog.setVisible(true);
 				window.createApartments(manager.getApartmentList());
 				break;
+			case REMOVE_APARTMENT:
+				break;
 			case CREATE_APARTMENT:
 				manager.addApartment(apartmentDialog.getPerson(), apartmentDialog.getNumber());
 				apartmentDialog.setVisible(false);
@@ -66,9 +91,6 @@ public class Controller implements ActionListener {
 				break;
 			case VIEW_APARTMENT:
 				informationDialog.setVisible(true);
-				break;
-			case EDIT_APARTMENT:
-				// manager.addApartment(owner, number);
 				break;
 			case EDIT_PERSON:
 				try {
@@ -111,5 +133,41 @@ public class Controller implements ActionListener {
 			default:
 				break;
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		JButton selectedButton = window.getSelectedButton();
+		System.out.println(selectedButton.getText());
+		informationDialog.setInformation(selectedButton.getText(), null, null);
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
 	}
 }

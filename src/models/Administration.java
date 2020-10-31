@@ -22,10 +22,17 @@ public class Administration {
 	public Administration() {
 		initProperties();
 		ioBinary = new IOBinary();
-		personList = new ArrayList<>();
-		aparmentList = new ArrayList<>();
+		aparmentList = new ArrayList<Apartment>();
+		personList = new ArrayList<Person>();
 		this.actualMonth = LocalDate.now().getMonth();
 		this.totalMoney = Double.parseDouble(properties.getProperty("TotalMoney"));
+	}
+
+	public ArrayList<Person> generatePersonList() {
+		for (Apartment apartment : aparmentList) {
+			personList.add(apartment.getOwner());
+		}
+		return personList;
 	}
 
 	private void initProperties() {
@@ -48,12 +55,14 @@ public class Administration {
 	public void addApartment(Person owner, String number) {
 		Apartment apartment = new Apartment(owner, number);
 		aparmentList.add(apartment);
-		ioBinary.writeApartment(apartment);
 	}
 
 	public void editPerson(int index, Person person) {
-		personList.remove(index);
-		personList.add(person);
+		personList.get(index).setName(person.getName());
+		personList.get(index).setLastName(person.getLastName());
+		personList.get(index).setIdNumber(person.getIdNumber());
+		personList.get(index).setIdType(person.getIdType());
+		personList.get(index).setCellPhoneNumber(person.getCellPhoneNumber());
 	}
 
 	public void deletePerson(Person owner) {

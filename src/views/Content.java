@@ -1,5 +1,6 @@
 package views;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.Controller;
@@ -80,5 +81,9 @@ public class Content extends JPanel implements ActionListener {
 
 	public void createApartments(ArrayList<Apartment> apartmentList) {
         propietarios.createApartments(apartmentList);
+	}
+
+	public JButton getSelectedButton() {
+		return propietarios.getSelectedButton();
 	}
 }

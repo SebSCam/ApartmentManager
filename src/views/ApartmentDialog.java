@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
@@ -16,10 +15,10 @@ public class ApartmentDialog extends JDialog {
     private JPanelApartment content;
     private Footer footer;
 
-    public ApartmentDialog(Controller controller, ArrayList<Person> arraylist, ActionListener listener) {
+    public ApartmentDialog(Controller controller, ArrayList<Person> arraylist) {
         header = new Header();
         header.setText("APARTAMENTO");
-        content = new JPanelApartment(controller, arraylist, listener);
+        content = new JPanelApartment(controller, arraylist);
         footer = new Footer();
         this.setSize(500, 400);
         this.setTitle(ConstantsGUI.DIALOG_TITLE_APARTMENT);
