@@ -18,7 +18,6 @@ public class PanelNorthFinanzas extends JPanel {
     public PanelNorthFinanzas() {
         this.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.setBorder(BorderFactory.createEmptyBorder(10,20,10,10));
-        // this.setBackground(Color.WHITE);
         initComponents();
     }
 

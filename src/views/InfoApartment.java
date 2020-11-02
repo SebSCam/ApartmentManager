@@ -42,12 +42,21 @@ public class InfoApartment extends JPanel {
 
         deudaTotal.setEditable(false);
         this.add(deudaTotal);
+
+        showBills.addActionListener(l);
+        showBills.setActionCommand(Command.SHOW_BILLS.name());
         this.add(showBills);
 
         removeApartment.addActionListener(l);
         removeApartment.setActionCommand(Command.REMOVE_APARTMENT.name());
         this.add(removeApartment);
+
+        pay.addActionListener(l);
+        pay.setActionCommand(Command.SHOW_PAY_DIALOG.name());
         this.add(pay);
+
+        cancel.addActionListener(l);
+        cancel.setActionCommand(Command.CANCEL_APARTMENT_VIEW.name());
         this.add(cancel);
     }
 
@@ -55,5 +64,9 @@ public class InfoApartment extends JPanel {
         this.apartmentNumber.setText(text);
         this.propietario.setText(propietario);
         this.deudaTotal.setText(deuda);
+    }
+
+    public String getApartment() {
+        return apartmentNumber.getText();
     }
 }

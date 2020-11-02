@@ -1,11 +1,13 @@
 package controller;
 
 import models.Administration;
+import models.Apartment;
 import models.IDType;
 import models.Person;
 import views.Command;
 import views.InformationDialog;
 import views.MainWindow;
+import views.Messages;
 import views.PersonDialog;
 import views.ApartmentDialog;
 import java.awt.event.ActionEvent;
@@ -77,6 +79,9 @@ public class Controller implements ActionListener, MouseInputListener {
 				window.createApartments(manager.getApartmentList());
 				break;
 			case REMOVE_APARTMENT:
+				manager.removeApartment(informationDialog.getApartmentNumber());
+				informationDialog.setVisible(false);
+				window.createApartments(manager.getApartmentList());
 				break;
 			case CREATE_APARTMENT:
 				manager.addApartment(apartmentDialog.getPerson(), apartmentDialog.getNumber());
@@ -85,6 +90,15 @@ public class Controller implements ActionListener, MouseInputListener {
 				break;
 			case CANCEL_APARTMENT:
 				apartmentDialog.setVisible(false);
+				break;
+			case CANCEL_APARTMENT_VIEW:
+				informationDialog.setVisible(false);
+				break;
+			case SHOW_BILLS:
+				Messages.showBills(manager.searchApartment(informationDialog.getApartmentNumber()).getBillList(),
+						informationDialog);
+				break;
+			case SHOW_PAY_DIALOG:
 				break;
 			case ADD_PERSON:
 				personDialog.setVisible(true);
@@ -137,7 +151,10 @@ public class Controller implements ActionListener, MouseInputListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+		JButton selectedButton = window.getSelectedButton();
+		Apartment apartment = manager.searchApartment(selectedButton.getText());
+		informationDialog.setInformation(selectedButton.getText(), apartment.getOwner().toString(),
+				String.valueOf(apartment.getBillTotal()));
 	}
 
 	@Override
@@ -146,9 +163,7 @@ public class Controller implements ActionListener, MouseInputListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		JButton selectedButton = window.getSelectedButton();
-		System.out.println(selectedButton.getText());
-		informationDialog.setInformation(selectedButton.getText(), null, null);
+
 	}
 
 	@Override

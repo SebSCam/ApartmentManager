@@ -38,4 +38,8 @@ public class InformationDialog extends JDialog {
 	public void setInformation(String number, String propietario, String deuda) {
 		content.setInformation(number, propietario, deuda);
 	}
+
+	public String getApartmentNumber() {
+		return content.getApartment();
+	}
 }

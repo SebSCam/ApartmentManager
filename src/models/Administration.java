@@ -163,4 +163,17 @@ public class Administration {
 		}
 		return datasList;
 	}
+
+	public Apartment searchApartment(String string) {
+		for (Apartment apartment : aparmentList) {
+			if (apartment.getIdNumber().equals(string)) {
+				return apartment;
+			}
+		}
+		return null;
+	}
+
+	public void removeApartment(String apartmentNumber) {
+		aparmentList.remove(searchApartment(apartmentNumber));
+	}
 }

@@ -3,14 +3,14 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Apartment implements Serializable{
-	
+public class Apartment implements Serializable {
+
 	private static final long serialVersionUID = -5039101338305804761L;
 	private Person owner;
-	private String idNumber;	
+	private String idNumber;
 	private ArrayList<Bill> billList;
 
-	public Apartment(Person owner, String idNumber){
+	public Apartment(Person owner, String idNumber) {
 		billList = new ArrayList<>();
 		this.owner = owner;
 		this.idNumber = idNumber;
@@ -20,23 +20,27 @@ public class Apartment implements Serializable{
 		return owner;
 	}
 
-	public String getIdNumber(){
+	public String getIdNumber() {
 		return idNumber;
 	}
 
-	public void setOwner(Person owner){
+	public void setOwner(Person owner) {
 		this.owner = owner;
-	} 
+	}
 
-	public void setIdNumber(String idNumber){
+	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
 
-	public ArrayList<Bill> getBill() {
-		return billList;
+	public double getBillTotal() {
+		double total = 0;
+		for (Bill bill : billList) {
+			total = bill.getValueFinal();
+		}
+		return total;
 	}
 
-	public void uploadBillMonth(Bill bill){
+	public void uploadBillMonth(Bill bill) {
 		billList.add(bill);
 	}
 
