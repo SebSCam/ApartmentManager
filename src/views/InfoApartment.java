@@ -63,7 +63,7 @@ public class InfoApartment extends JPanel {
     public void setInformation(String text, String propietario, String deuda) {
         this.apartmentNumber.setText(text);
         this.propietario.setText(propietario);
-        this.deudaTotal.setText(deuda);
+        this.deudaTotal.setText("$ " + deuda);
     }
 
     public String getApartment() {

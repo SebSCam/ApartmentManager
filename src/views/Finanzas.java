@@ -1,6 +1,9 @@
 package views;
 
 import javax.swing.JPanel;
+
+import controller.Controller;
+
 import java.awt.BorderLayout;
 
 public class Finanzas extends JPanel {
@@ -13,9 +16,9 @@ public class Finanzas extends JPanel {
     private ButtonPanelFinanzas buttonPanel;
     private CenterPanelFinanzas centerPanel;
 
-    public Finanzas() {
+    public Finanzas(Controller controller) {
         panelNorth = new PanelNorthFinanzas();
-        buttonPanel = new ButtonPanelFinanzas();
+        buttonPanel = new ButtonPanelFinanzas(controller);
         centerPanel = new CenterPanelFinanzas();
         this.setLayout(new BorderLayout());
         initComponents();

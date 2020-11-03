@@ -60,4 +60,5 @@ public class ConstantsGUI {
 	public static final String NAME_BUTTON_PAY = "COBRAR";
 	public static final String PATH_IMAGE_PAY = "/images/pay.png";
 	public static final String NAME_BUTTON_SHOW_BILL = "VER FACTURAS";
+	public static final String[] HEADERS_FINANZAS = { "Concepto", "Persona", "Fecha", "Monto", "Tipo" };
 }

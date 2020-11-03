@@ -98,7 +98,16 @@ public class Controller implements ActionListener, MouseInputListener {
 				Messages.showBills(manager.searchApartment(informationDialog.getApartmentNumber()).getBillList(),
 						informationDialog);
 				break;
+			case ADD_REGISTRY:
+				break;
 			case SHOW_PAY_DIALOG:
+				try {
+					manager.payment(Messages
+							.getBill(manager.searchApartment(informationDialog.getApartmentNumber()).getBillList()));
+				} catch (Exception sade) {
+					JOptionPane.showMessageDialog(null, "No hay facturas por pagar", "Pagos al Dia",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
 				break;
 			case ADD_PERSON:
 				personDialog.setVisible(true);

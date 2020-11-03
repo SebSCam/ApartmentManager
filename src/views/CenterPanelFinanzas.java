@@ -13,6 +13,12 @@ public class CenterPanelFinanzas extends JPanel {
     public CenterPanelFinanzas() {
         registros = new TableModel();
         // this.setBackground(Color.WHITE);
+       
+        initComponents();
+    }
+
+    private void initComponents() {
+        registros.changeTableHeader(ConstantsGUI.HEADERS_FINANZAS);
         this.add(registros);
     }
 }

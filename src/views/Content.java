@@ -32,7 +32,7 @@ public class Content extends JPanel implements ActionListener {
 
     private void initComponents(Controller controller) {
         propietarios = new Propietarios(controller);
-        finanzas = new Finanzas();
+        finanzas = new Finanzas(controller);
         cartera = new Cartera();
         mora = new Mora();
         ajustes = new Ajustes();
