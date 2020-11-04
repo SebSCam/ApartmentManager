@@ -17,7 +17,7 @@ public class Propietarios extends JTabbedPane {
     private PanelApartamentos panelApartamentos;
 
     public Propietarios(Controller l) {
-        panelPropietarios= new PanelPropietarios(l);
+        panelPropietarios = new PanelPropietarios(l);
         panelApartamentos = new PanelApartamentos(l);
         initComponents();
     }
@@ -27,23 +27,27 @@ public class Propietarios extends JTabbedPane {
         this.add(panelApartamentos);
     }
 
-	public int getSelectedRow() {
-		return panelPropietarios.getSelectedRow();
-	}
+    public int getSelectedRow() {
+        return panelPropietarios.getSelectedRow();
+    }
 
-	public void addLineToTable(Object[] objects) {
+    public void addLineToTable(Object[] objects) {
         panelPropietarios.addLineToTable(objects);
-	}
+    }
 
-	public void deletePersonTable() {
+    public void deletePersonTable() {
         panelPropietarios.deleteTable();
-	}
+    }
 
-	public void createApartments(ArrayList<Apartment> apartmentList) {
+    public void createApartments(ArrayList<Apartment> apartmentList) {
         panelApartamentos.createApartments(apartmentList);
-	}
+    }
 
-	public JButton getSelectedButton() {
-		return panelApartamentos.getSelectedButton();
-	}
+    public JButton getSelectedButton() {
+        return panelApartamentos.getSelectedButton();
+    }
+
+    public TableOptions getApartmentTableOption() {
+        return panelApartamentos.getApartmentTableOption();
+    }
 }

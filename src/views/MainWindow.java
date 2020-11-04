@@ -60,4 +60,16 @@ public class MainWindow extends JFrame {
 	public void deleteRegistTable() {
         panelPrincipal.deleteRegistTable();
 	}
+
+	public TableOptions getApartmentTableOption() {
+		return panelPrincipal.getApartmentTableOption();
+	}
+
+	public void addLineToMora(Object[] objects) {
+        panelPrincipal.addLineToMora(objects);
+    }
+    
+    public void deleteDueTable() {
+        panelPrincipal.deleteDueTable();
+    }
 }

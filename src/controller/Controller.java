@@ -10,6 +10,7 @@ import views.MainWindow;
 import views.Messages;
 import views.PersonDialog;
 import views.RegistryDialog;
+import views.TableOptions;
 import views.ApartmentDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,23 +54,28 @@ public class Controller implements ActionListener, MouseInputListener {
 		apartmentDialog = new ApartmentDialog(this, manager.getPersonList());
 		informationDialog = new InformationDialog(this);
 		registryDialog = new RegistryDialog(this);
-		managePersonTable();
-		manageRegistTale();
-		window.createApartments(manager.getApartmentList());
+		update();
 		init();
 	}
 
-	private void manageRegistTale() {
-		ArrayList<Object[]> datasList = manager.getRegistListVector();
+	private void manageRegistTale(ArrayList<Object[]> registList) {
+		ArrayList<Object[]> datasList = registList;
 		for (Object[] objects : datasList) {
 			window.addLineToRegistTable(objects);
 		}
 	}
 
-	private void managePersonTable() {
-		ArrayList<Object[]> datasList = manager.getPersonListVector();
+	private void managePersonTable(ArrayList<Object[]> personList) {
+		ArrayList<Object[]> datasList = personList;
 		for (Object[] objects : datasList) {
 			window.addLineToTable(objects);
+		}
+	}
+
+	private void managePersonDueTable(ArrayList<Object[]> personList) {
+		ArrayList<Object[]> dataList = personList;
+		for (Object[] objects : dataList) {
+			window.addLineToMora(objects);
 		}
 	}
 
@@ -79,12 +85,13 @@ public class Controller implements ActionListener, MouseInputListener {
 
 	private void update() {
 		window.deletePersonTable();
-		managePersonTable();
+		managePersonTable(manager.getPersonListVector(manager.getPersonList()));
 		apartmentDialog.uptatePerson(manager.getPersonList());
 		window.createApartments(manager.getApartmentList());
 		window.deleteRegistTable();
-		manageRegistTale();
-		
+		manageRegistTale(manager.getRegistListVector());
+		window.deleteDueTable();
+		managePersonDueTable(manager.getPersonListVector(manager.getPersonDueList()));
 	}
 
 	public void getPersonList() {
@@ -134,8 +141,13 @@ public class Controller implements ActionListener, MouseInputListener {
 				}
 				break;
 			case REMOVE_REGISTRY:
-				manager.getRegistList().remove(window.getSelectedRegist());
-				update();
+				try {
+					manager.getRegistList().remove(window.getSelectedRegist());
+					registryDialog.setVisible(false);
+					update();
+				} catch (Exception exa) {
+					Messages.showError("Debes seleccionar un registro a eliminar");
+				}
 				break;
 			case CANCEL_REGISTRY:
 				registryDialog.setVisible(false);
@@ -144,6 +156,7 @@ public class Controller implements ActionListener, MouseInputListener {
 				try {
 					manager.payment(Messages
 							.getBill(manager.searchApartment(informationDialog.getApartmentNumber()).getBillList()));
+					update();
 				} catch (Exception sade) {
 					JOptionPane.showMessageDialog(null, "No hay facturas por pagar", "Pagos al Dia",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -174,6 +187,7 @@ public class Controller implements ActionListener, MouseInputListener {
 				try {
 					manager.getPersonList().remove(window.getSelectedRow());
 					update();
+
 				} catch (IndexOutOfBoundsException e2) {
 					Messages.showError("Por favor seleccione un Propietario");
 				}
@@ -186,9 +200,16 @@ public class Controller implements ActionListener, MouseInputListener {
 			case CANCEL_PERSON:
 				personDialog.setVisible(false);
 				break;
+			case CHANGE_TABLE_APARTMENTS:
+				changeApartmentTableContent(window.getApartmentTableOption());
+				break;
 			default:
 				break;
 		}
+	}
+
+	private void changeApartmentTableContent(TableOptions option) {
+		window.createApartments(manager.getFilteredApartmentList(option));
 	}
 
 	@Override

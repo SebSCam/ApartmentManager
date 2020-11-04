@@ -32,4 +32,12 @@ public class Mora extends JPanel {
         this.add(title);
         this.add(table);
     }
+
+    public void addLineToMora(Object[] objects) {
+        table.addRow(objects);
+    }
+
+    public void deleteDueTable() {
+        table.deleteTable();
+    }
 }

@@ -10,6 +10,7 @@ public class Person implements Serializable {
 	private IDType idType;
 	private String idNumber;
 	private String cellPhoneNumber;
+	private boolean due;
 
 	public Person(String name, String lastName, IDType idType, String idNumber, String cellPhoneNumber) {
 		this.name = name;
@@ -17,6 +18,7 @@ public class Person implements Serializable {
 		this.idType = idType;
 		this.idNumber = idNumber;
 		this.cellPhoneNumber = cellPhoneNumber;
+		this.due = false;
 	}
 
 	public String getName() {
@@ -57,6 +59,14 @@ public class Person implements Serializable {
 
 	public Object[] toObjectVector() {
 		return new Object[] { name, lastName, idType, idNumber, cellPhoneNumber };
+	}
+
+	public boolean getDue() {
+		return due;
+	}
+
+	public void setDue(boolean due) {
+		this.due = due;
 	}
 
 	@Override

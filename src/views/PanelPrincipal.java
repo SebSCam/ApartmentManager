@@ -2,10 +2,8 @@ package views;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import controller.Controller;
 import models.Apartment;
-
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 
@@ -66,5 +64,17 @@ public class PanelPrincipal extends JPanel {
 
         public void deleteRegistTable() {
                 content.deleteRegistTable();
+        }
+
+        public TableOptions getApartmentTableOption() {
+                return content.getApartmentTableOption();
+        }
+
+        public void addLineToMora(Object[] objects) {
+                content.addLineToMora(objects);
+        }
+
+        public void deleteDueTable() {
+                content.deleteDueTable();
         }
 }

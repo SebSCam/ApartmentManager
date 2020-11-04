@@ -29,6 +29,8 @@ public class ButtonPanelApartamentos extends JPanel {
 
         addComboBoxOptions();
         tableSelector.setPreferredSize(buttonAdd.getPreferredSize());
+        tableSelector.addActionListener(l);
+        tableSelector.setActionCommand(Command.CHANGE_TABLE_APARTMENTS.name());
         this.add(tableSelector);
     }
 
@@ -38,5 +40,9 @@ public class ButtonPanelApartamentos extends JPanel {
             tableSelector.insertItemAt(option, count++);
         }
         tableSelector.setSelectedItem(TableOptions.PROPIETARIOS);
+    }
+
+    public TableOptions getApartmentTableOption() {
+        return (TableOptions) tableSelector.getSelectedItem();
     }
 }

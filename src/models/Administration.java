@@ -8,6 +8,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Properties;
 import views.Concept;
+import views.TableOptions;
 
 public class Administration {
 
@@ -33,7 +34,13 @@ public class Administration {
 
 	public ArrayList<Person> generatePersonList() {
 		for (Apartment apartment : aparmentList) {
-			personList.add(apartment.getOwner());
+			if (apartment.getBillTotal() > 0) {
+				Person person = apartment.getOwner();
+				person.setDue(true);
+				personList.add(person);
+			} else {
+				personList.add(apartment.getOwner());
+			}
 		}
 		return personList;
 	}
@@ -164,7 +171,7 @@ public class Administration {
 		personList.add(person);
 	}
 
-	public ArrayList<Object[]> getPersonListVector() {
+	public ArrayList<Object[]> getPersonListVector(ArrayList<Person> personList) {
 		ArrayList<Object[]> datasList = new ArrayList<>();
 		for (int i = 0; i < personList.size(); i++) {
 			datasList.add(personList.get(i).toObjectVector());
@@ -196,5 +203,42 @@ public class Administration {
 
 	public ArrayList<Bill> getRegistList() {
 		return registList;
+	}
+
+	public ArrayList<Apartment> getFilteredApartmentList(TableOptions option) {
+		ArrayList<Apartment> list = new ArrayList<>();
+		for (Apartment apartment : aparmentList) {
+			if (option.equals(TableOptions.ALDIA) && apartment.getBillTotal() == 0) {
+				list.add(apartment);
+			} else if (option.equals(TableOptions.MORA) && apartment.getBillTotal() > 0) {
+				list.add(apartment);
+			} else if (option.equals(TableOptions.PROPIETARIOS)) {
+				list.add(apartment);
+			}
+		}
+		return list;
+	}
+
+	public Person searchPerson(ArrayList<Person> personList, int index) {
+		for (Person person : this.personList) {
+			if (person.getIdNumber().equals(personList.get(index).getIdNumber())) {
+				return person;
+			}
+		}
+		return personList.get(index);
+	}
+
+	public void removePerson(Person person) {
+		personList.remove(person);
+	}
+
+	public ArrayList<Person> getPersonDueList() {
+		ArrayList<Person> personas = new ArrayList<>();
+		for (Person aux : personList) {
+			if (aux.getDue()) {
+				personas.add(aux);
+			}
+		}
+		return personas;
 	}
 }

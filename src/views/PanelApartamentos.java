@@ -37,4 +37,8 @@ public class PanelApartamentos extends JPanel {
 	public JButton getSelectedButton() {
 		return panelApartamentos.getSelectedButton();
 	}
+
+	public TableOptions getApartmentTableOption() {
+		return panelPropietarios.getApartmentTableOption();
+	}
 }

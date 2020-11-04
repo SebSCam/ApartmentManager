@@ -67,35 +67,47 @@ public class Content extends JPanel implements ActionListener {
         }
     }
 
-	public int getSelectedRow() {
-		return propietarios.getSelectedRow();
-	}
+    public int getSelectedRow() {
+        return propietarios.getSelectedRow();
+    }
 
-	public void addLineToTable(Object[] objects) {
+    public void addLineToTable(Object[] objects) {
         propietarios.addLineToTable(objects);
-	}
+    }
 
-	public void deletePersonTable() {
+    public void deletePersonTable() {
         propietarios.deletePersonTable();
-	}
+    }
 
-	public void createApartments(ArrayList<Apartment> apartmentList) {
+    public void createApartments(ArrayList<Apartment> apartmentList) {
         propietarios.createApartments(apartmentList);
-	}
+    }
 
-	public JButton getSelectedButton() {
-		return propietarios.getSelectedButton();
-	}
+    public JButton getSelectedButton() {
+        return propietarios.getSelectedButton();
+    }
 
-	public void addLineToRegistTable(Object[] objects) {
+    public void addLineToRegistTable(Object[] objects) {
         finanzas.addLineToRegistTable(objects);
-	}
+    }
 
-	public int getSelectedRegist() {
-		return finanzas.getSelectedRegist();
-	}
+    public int getSelectedRegist() {
+        return finanzas.getSelectedRegist();
+    }
 
-	public void deleteRegistTable() {
+    public void deleteRegistTable() {
         finanzas.deleteRegistTable();
-	}
+    }
+
+    public TableOptions getApartmentTableOption() {
+        return propietarios.getApartmentTableOption();
+    }
+
+    public void addLineToMora(Object[] objects) {
+        mora.addLineToMora(objects);
+    }
+
+    public void deleteDueTable() {
+        mora.deleteDueTable();
+    }
 }
