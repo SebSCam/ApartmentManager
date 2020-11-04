@@ -55,4 +55,16 @@ public class PanelPrincipal extends JPanel {
         public JButton getSelectedButton() {
                 return content.getSelectedButton();
         }
+
+        public void addLineToRegistTable(Object[] objects) {
+                content.addLineToRegistTable(objects);
+        }
+
+        public int getSelectedRegist() {
+                return content.getSelectedRegist();
+        }
+
+        public void deleteRegistTable() {
+                content.deleteRegistTable();
+        }
 }

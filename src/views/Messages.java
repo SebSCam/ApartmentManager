@@ -18,6 +18,11 @@ public class Messages {
 
 	public static Bill getBill(ArrayList<Bill> billList) {
 		Object[] list = billList.toArray();
-		return (Bill) JOptionPane.showInputDialog(null, "Seleccione una factura a cancelar", "Pagos en mora", JOptionPane.QUESTION_MESSAGE, new ImageIcon(), list, list[0]);
+		return (Bill) JOptionPane.showInputDialog(null, "Seleccione factura a pagar", "Pagos en mora",
+				JOptionPane.QUESTION_MESSAGE, new ImageIcon(), list, list[0]);
+	}
+
+	public static void showError(String message) {
+		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 }

@@ -9,12 +9,12 @@ import views.InformationDialog;
 import views.MainWindow;
 import views.Messages;
 import views.PersonDialog;
+import views.RegistryDialog;
 import views.ApartmentDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.event.MouseInputListener;
@@ -26,6 +26,7 @@ public class Controller implements ActionListener, MouseInputListener {
 	private PersonDialog personDialog;
 	private ApartmentDialog apartmentDialog;
 	private InformationDialog informationDialog;
+	private RegistryDialog registryDialog;
 
 	public Controller() {
 		manager = new Administration();
@@ -51,9 +52,18 @@ public class Controller implements ActionListener, MouseInputListener {
 		personDialog = new PersonDialog(this);
 		apartmentDialog = new ApartmentDialog(this, manager.getPersonList());
 		informationDialog = new InformationDialog(this);
+		registryDialog = new RegistryDialog(this);
 		managePersonTable();
+		manageRegistTale();
 		window.createApartments(manager.getApartmentList());
 		init();
+	}
+
+	private void manageRegistTale() {
+		ArrayList<Object[]> datasList = manager.getRegistListVector();
+		for (Object[] objects : datasList) {
+			window.addLineToRegistTable(objects);
+		}
 	}
 
 	private void managePersonTable() {
@@ -67,6 +77,16 @@ public class Controller implements ActionListener, MouseInputListener {
 		window.setVisible(true);
 	}
 
+	private void update() {
+		window.deletePersonTable();
+		managePersonTable();
+		apartmentDialog.uptatePerson(manager.getPersonList());
+		window.createApartments(manager.getApartmentList());
+		window.deleteRegistTable();
+		manageRegistTale();
+		
+	}
+
 	public void getPersonList() {
 		manager.getPersonList();
 	}
@@ -76,17 +96,17 @@ public class Controller implements ActionListener, MouseInputListener {
 		switch (Command.valueOf(e.getActionCommand())) {
 			case ADD_APARTMENT:
 				apartmentDialog.setVisible(true);
-				window.createApartments(manager.getApartmentList());
+				update();
 				break;
 			case REMOVE_APARTMENT:
 				manager.removeApartment(informationDialog.getApartmentNumber());
 				informationDialog.setVisible(false);
-				window.createApartments(manager.getApartmentList());
+				update();
 				break;
 			case CREATE_APARTMENT:
 				manager.addApartment(apartmentDialog.getPerson(), apartmentDialog.getNumber());
 				apartmentDialog.setVisible(false);
-				window.createApartments(manager.getApartmentList());
+				update();
 				break;
 			case CANCEL_APARTMENT:
 				apartmentDialog.setVisible(false);
@@ -99,6 +119,26 @@ public class Controller implements ActionListener, MouseInputListener {
 						informationDialog);
 				break;
 			case ADD_REGISTRY:
+				registryDialog.setVisible(true);
+				break;
+
+			case CREATE_REGISTRY:
+				try {
+					manager.addRegist(registryDialog.getRegist());
+					registryDialog.setVisible(false);
+					update();
+				} catch (NullPointerException eX) {
+					Messages.showError("Formato de Fecha Incorrecto DD-MM-YYYY");
+				} catch (NumberFormatException e1) {
+					Messages.showError("Complete todos los campos y verifique el formato");
+				}
+				break;
+			case REMOVE_REGISTRY:
+				manager.getRegistList().remove(window.getSelectedRegist());
+				update();
+				break;
+			case CANCEL_REGISTRY:
+				registryDialog.setVisible(false);
 				break;
 			case SHOW_PAY_DIALOG:
 				try {
@@ -121,34 +161,27 @@ public class Controller implements ActionListener, MouseInputListener {
 					personDialog.changeButton();
 					personDialog.setVisible(true);
 				} catch (IndexOutOfBoundsException exception) {
-					JOptionPane.showMessageDialog(null, "Por favor seleccione un Propietario", "Error",
-							JOptionPane.ERROR_MESSAGE);
+					Messages.showError("Por favor seleccione un Propietario");
 				}
 				break;
 			case CHANGE_PERSON:
 				personDialog.setVisible(false);
 				manager.editPerson(window.getSelectedRow(), personDialog.getPerson());
 				personDialog.revert();
-				window.deletePersonTable();
-				managePersonTable();
+				update();
 				break;
 			case REMOVE_PERSON:
 				try {
 					manager.getPersonList().remove(window.getSelectedRow());
-					window.deletePersonTable();
-					managePersonTable();
+					update();
 				} catch (IndexOutOfBoundsException e2) {
-					JOptionPane.showMessageDialog(null, "Por favor seleccione un Propietario", "Error",
-							JOptionPane.ERROR_MESSAGE);
+					Messages.showError("Por favor seleccione un Propietario");
 				}
 				break;
 			case CREATE_PERSON:
 				personDialog.setVisible(false);
 				manager.addPerson(personDialog.getPerson());
-				System.out.println("Pruebitas");
-				window.deletePersonTable();
-				managePersonTable();
-				apartmentDialog.uptatePerson(manager.getPersonList());
+				update();
 				break;
 			case CANCEL_PERSON:
 				personDialog.setVisible(false);

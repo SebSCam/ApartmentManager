@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Properties;
+import views.Concept;
 
 public class Administration {
 
@@ -15,6 +16,7 @@ public class Administration {
 	private Month actualMonth;
 	private ArrayList<Person> personList;
 	private ArrayList<Apartment> aparmentList;
+	private ArrayList<Bill> registList;
 	private double totalMoney;
 	private Properties properties;
 	private IOBinary ioBinary;
@@ -24,6 +26,7 @@ public class Administration {
 		ioBinary = new IOBinary();
 		aparmentList = new ArrayList<Apartment>();
 		personList = new ArrayList<Person>();
+		registList = new ArrayList<Bill>();
 		this.actualMonth = LocalDate.now().getMonth();
 		this.totalMoney = Double.parseDouble(properties.getProperty("TotalMoney"));
 	}
@@ -49,12 +52,13 @@ public class Administration {
 		personList.add(person);
 	}
 
-	// }
-	// }
-
 	public void addApartment(Person owner, String number) {
 		Apartment apartment = new Apartment(owner, number);
 		aparmentList.add(apartment);
+	}
+
+	public void addRegist(Bill bill) {
+		registList.add(bill);
 	}
 
 	public void editPerson(int index, Person person) {
@@ -76,6 +80,7 @@ public class Administration {
 	 */
 	public void payment(Bill bill) {
 		loadPayment(totalMoney + calculatePaymentMonth(bill));
+		registList.add(bill);
 	}
 
 	/**
@@ -86,13 +91,17 @@ public class Administration {
 	 * @param typeService Enum de tipo de servicio
 	 * @param price       Valor del servicio
 	 */
-	public void payServices(ExtraServices typeService, double price) {
+	public void payServices(Concept typeService, double price) {
 		switch (typeService) {
 			case POOL_SERVICE:
 				loadPayment(totalMoney + price);
 				break;
 			case SCYTHE_SERVICE:
 				loadPayment(totalMoney - price);
+				break;
+			case ADMINISTRATION:
+				loadPayment(totalMoney);
+			default:
 				break;
 		}
 	}
@@ -145,7 +154,6 @@ public class Administration {
 
 	public void readApartmentList() {
 		ioBinary.readApartment();
-		;
 	}
 
 	public double getTotalMoney() {
@@ -174,6 +182,19 @@ public class Administration {
 	}
 
 	public void removeApartment(String apartmentNumber) {
+		personList.remove(searchApartment(apartmentNumber).getOwner());
 		aparmentList.remove(searchApartment(apartmentNumber));
+	}
+
+	public ArrayList<Object[]> getRegistListVector() {
+		ArrayList<Object[]> datasList = new ArrayList<>();
+		for (int i = 0; i < registList.size(); i++) {
+			datasList.add(registList.get(i).toObjectVector());
+		}
+		return datasList;
+	}
+
+	public ArrayList<Bill> getRegistList() {
+		return registList;
 	}
 }

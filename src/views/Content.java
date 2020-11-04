@@ -86,4 +86,16 @@ public class Content extends JPanel implements ActionListener {
 	public JButton getSelectedButton() {
 		return propietarios.getSelectedButton();
 	}
+
+	public void addLineToRegistTable(Object[] objects) {
+        finanzas.addLineToRegistTable(objects);
+	}
+
+	public int getSelectedRegist() {
+		return finanzas.getSelectedRegist();
+	}
+
+	public void deleteRegistTable() {
+        finanzas.deleteRegistTable();
+	}
 }

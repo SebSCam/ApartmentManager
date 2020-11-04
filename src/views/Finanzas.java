@@ -29,4 +29,16 @@ public class Finanzas extends JPanel {
         this.add(buttonPanel, BorderLayout.EAST);
         this.add(centerPanel, BorderLayout.CENTER);
     }
+
+    public void addLineToRegistTable(Object[] objects) {
+        centerPanel.addLineToRegistTable(objects);
+    }
+
+    public int getSelectedRegist() {
+        return centerPanel.getSelectedRegist();
+    }
+
+    public void deleteRegistTable() {
+        centerPanel.deleteRegistTable();
+    }
 }

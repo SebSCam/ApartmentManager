@@ -2,27 +2,27 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Month;
+import views.Concept;
 
-public class Bill implements Serializable{
+public class Bill implements Serializable {
 
     private static final long serialVersionUID = 7566437190185049076L;
-    
+
     private LocalDate dateBill;
-    private Month concept;
+    private Concept concept;
     private String name;
-    private String number;
+    private String type;
     private boolean isPayment;
     private double valueFinal;
 
-    public Bill(LocalDate dateBill, Month concept, String name, String number) {
-        this.dateBill = dateBill;
-        this.concept = concept;
+    public Bill(LocalDate date, Concept object, String name, String type) {
+        this.dateBill = date;
+        this.concept = object;
         this.name = name;
-        this.number = number;
+        this.type = type;
     }
-   
-    public boolean getIsPayment(){
+
+    public boolean getIsPayment() {
         return isPayment;
     }
 
@@ -30,17 +30,25 @@ public class Bill implements Serializable{
         this.isPayment = true;
     }
 
-    public double getValueFinal(){
+    public double getValueFinal() {
         return valueFinal;
     }
 
-    public Month getConcept(){
+    public Concept getConcept() {
         return concept;
     }
 
-     @Override
+    @Override
     public String toString() {
-        return "Fecha: " + dateBill + "Concepto: " + concept + ", Propietario: " + name + "# Apartamento: " + number
+        return "Fecha: " + dateBill + "Concepto: " + concept + ", Propietario: " + name + "# Apartamento: " + type
                 + "Valor" + valueFinal;
+    }
+
+    public Object[] toObjectVector() {
+        return new Object[] { concept, name, dateBill, valueFinal, type };
+    }
+
+    public void setAmount(double d) {
+        this.valueFinal = d;
     }
 }

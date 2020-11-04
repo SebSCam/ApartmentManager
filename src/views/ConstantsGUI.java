@@ -61,4 +61,11 @@ public class ConstantsGUI {
 	public static final String PATH_IMAGE_PAY = "/images/pay.png";
 	public static final String NAME_BUTTON_SHOW_BILL = "VER FACTURAS";
 	public static final String[] HEADERS_FINANZAS = { "Concepto", "Persona", "Fecha", "Monto", "Tipo" };
+	public static final String DIALOG_TITLE_REGISTRY = "Nuevo Registro";
+
+	public static final String BORDER_NAME_NOMBRE = "Nombre";
+	public static final String BORDER_NAME_DATE = "Fecha";
+	public static final String BORDER_NAME_MONTO = "Monto";
+	public static final String BORDER_NAME_CONCEPT = "Concepto";
+	public static final String BORDER_NAME_TYPE_REG = "Tipo";
 }

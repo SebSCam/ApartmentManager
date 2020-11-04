@@ -27,6 +27,9 @@ public class ButtonPanelFinanzas extends JPanel {
         registry.setActionCommand(Command.ADD_REGISTRY.name());
         registry.addActionListener(l);
         this.add(registry);
+
+        delete.setActionCommand(Command.REMOVE_REGISTRY.name());
+        delete.addActionListener(l);
         this.add(delete);
     }
 }

@@ -13,7 +13,7 @@ public class CenterPanelFinanzas extends JPanel {
     public CenterPanelFinanzas() {
         registros = new TableModel();
         // this.setBackground(Color.WHITE);
-       
+
         initComponents();
     }
 
@@ -21,4 +21,16 @@ public class CenterPanelFinanzas extends JPanel {
         registros.changeTableHeader(ConstantsGUI.HEADERS_FINANZAS);
         this.add(registros);
     }
+
+    public void addLineToRegistTable(Object[] objects) {
+        registros.addRow(objects);
+    }
+
+	public int getSelectedRegist() {
+		return registros.getSelectedRow();
+	}
+
+	public void deleteRegistTable() {
+        registros.deleteTable();
+	}
 }
