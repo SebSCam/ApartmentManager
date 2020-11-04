@@ -2,8 +2,6 @@ package controller;
 
 import models.Administration;
 import models.Apartment;
-import models.IDType;
-import models.Person;
 import views.Command;
 import views.InformationDialog;
 import views.MainWindow;
@@ -31,22 +29,21 @@ public class Controller implements ActionListener, MouseInputListener {
 
 	public Controller() {
 		manager = new Administration();
-		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
-		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
-		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
-		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
-		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
-		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
-		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
-		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
-		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
-		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
-		manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
-		manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
-		manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
-		manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
-		manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
-
+		// manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		// manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		// manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		// manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		// manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
+		// manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		// manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		// manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		// manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		// manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
+		// manager.addApartment(new Person("Esteban", "Torres", IDType.CC, "21458963", "3114587965"), "1-1");
+		// manager.addApartment(new Person("Ivan", "Fernanza", IDType.CC, "43435", "3114587965"), "1-2");
+		// manager.addApartment(new Person("Sebastian", "Puerto", IDType.CC, "453445", "3114587965"), "1-3");
+		// manager.addApartment(new Person("Daniel", "Luis", IDType.CC, "87678", "3114587965"), "1-4");
+		// manager.addApartment(new Person("Carlos", "Torres", IDType.CC, "945345", "3114587965"), "1-5");
 		manager.generatePersonList();
 
 		window = new MainWindow(this);
